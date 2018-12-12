@@ -1,18 +1,44 @@
 <!doctype html>
 <html lang="it">
+    <!-- +++++++++++++++++++++++++++++ NON SI TOCCA PIU SE NON PER  LA GRAFICA  PENA PER CHI LO MODIFICA TAGLIO DELLE MANI !!!!!!!!!!!!-->
     <head>
-        <meta charset="utf-8"/>
-        <!--meta name="viewport" content="width=device-width, initial-scale=1"/-->
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="form.css" rel="stylesheet"/>
-        <script type="text/javascript" lang="javascript" src="js/bootstrap.min.js"></script>
-        <script type="text/javascript" lang="javascript" src="formScript.js"></script>
+            <meta charset="utf-8"/>
+            <!--meta name="viewport" content="width=device-width, initial-scale=1"-->
+            <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+            <link rel=stylesheet href="stile.css" type="text/css">
+            <script type="text/javascript" lang="javascript" src="js/bootstrap.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     </head>
-    
-    <body class="text-center">
-        <form action="grafica.html" class="form-log" method="GET" name="formLogin" onSubmit="checkUtente()">
-            <table>
-                <img class="gif" src="tenor.gif" alt="" width="140" height="100"/>          
+    <script>
+        function verifica(emailA, passwordA, a){
+            for(i=0; a!=null && i<a.length; i++){
+                if(a[i].email==emailA && a[i].password==passwordA ) {
+                    return true;
+                }
+            }
+            
+            return false;
+        }
+        function checkUtente(){
+            emailA=document.getElementById("email").value;
+            passwordA=document.getElementById("password").value;
+            alert(emailA + passwordA);
+            var a=JSON.parse( localStorage.getItem('Utente'));
+            alert(a)
+            if(verifica(emailA,passwordA,a)==true){
+                alert("credenziali confermate");
+                window.location.href="./grafica.html";
+                return false;
+            }
+            
+            alert("credenziali non valide");
+            return false;
+            
+        }
+    </script>
+    <body >
+        <form id="formAccedi" onsubmit="return checkUtente()" action="#">
+            <table>    
                 <tr>
                     <td><label for="Email" class="Etichette">Email</label></td>
                     <td><input type="email" id="email" name="email" class="form-control" placeholder="Inserisci la tua email" required autofocus></td>
@@ -24,14 +50,10 @@
                     <td><input type="checkbox" onchange="document.getElementById('password').type = this.checked ? 'text' : 'password'">
                 </tr>
                 <tr>
-                <td><!--        IL BOTTONE é OK MA DEVE RIMANDARE ALLA PAGINA GRAFICA CON LOAD CHE ANCORA NON È FATTA -->
+                <td>
                     <button type="submit"> Accedi </button>                                                                               
                 </tr>
             </table>
         </form>
     </body>
 </html>
-
-
-
-FIGAAAAAAAAAAA
