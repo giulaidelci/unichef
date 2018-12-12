@@ -1,0 +1,126 @@
+@font-face {
+    font-family: 'Champagne & Limousines';
+    src: url('ChampagneLimousines-Italic.eot');
+    src: url('ChampagneLimousines-Italic.eot?#iefix') format('embedded-opentype'),
+        url('ChampagneLimousines-Italic.woff') format('woff'),
+        url('ChampagneLimousines-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+h1{
+    color:#470404; 
+    font-size: 70px; 
+    text-align:center; 
+    margin:0; 
+    font-family: "Champagne & Limousines" , "ChampagneLimousines-Italic" , italic ; 
+}
+
+#logo{
+    position: relative;
+    margin-left: 14vw;
+    margin-top: 3vw;
+}
+
+#cerca{
+    position: absolute;
+    left: 35%;
+    right:85%;
+        
+}
+
+input, textarea {
+    background: rgb(255, 255, 255); /* Colore di sfondo */
+    color: rgb(0, 0, 0); /* Colore del testo */
+    height: 35px; /* Altezza */
+    line-height: 30px; /* Altezza di riga */
+    width: 500px; /* Larghezza */
+    text-align: center;
+    margin: auto;
+}
+
+.PulsanteCerca {
+    background: rgb(247, 247, 247); /* Trasparenza sfondo pulsanti*/
+    border: rgb(66, 4, 4);
+    color: rgb(66, 4, 4);
+    padding: 0px; /* Spazio da lasciare tra un elemento dalle cordinate x,y*/
+    height: 35px;              /* altezza             */
+    width: 80px;               /* larghezza           */
+    text-align: center;
+    display: inline-block;
+    font-family: "Champagne & Limousines" , "ChampagneLimousines-Italic" , italic ; 
+    font-size: 25px;
+    cursor: pointer;
+   
+}
+
+#pulsanti {
+    /*Il posizionamento assoluto esula dal flusso di dati del documento, per questo risulta ultile per piazzare div (o altro) in modo dinamico*/
+    position:absolute;
+    /*Grazie al posizionamento fluid (ovvero con percentuali) il nostro div si adattera' automaticamente allo schermo di tutte le risoluzioni*/
+    right:3px; top:3px; 
+}
+
+
+
+body{
+    background-image:url('geOr4I.jpg');
+    background-size: contain ;
+    font-family: "Champagne & Limousines" , "ChampagneLimousines-Italic" , italic ; 
+}
+
+#listaIngredienti{
+    color: rgb(66, 4, 4);
+    font-size: 30px;
+    font-family: "Champagne & Limousines" , "ChampagneLimousines-Italic" , italic ;    
+}
+
+
+#inEvidenza{
+    margin-top: 25%;
+    height: 40%;
+    background-color:rgb(175, 33, 33);
+    opacity: 0.75;
+    border-radius: 3px;
+    /* box-shadow: 1px 3px 10px 5px rgb(167, 33, 33) ; */
+    
+}
+
+#popolari{
+    display: inline-block;
+    float: left;
+    margin-left: 15px;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: "Champagne & Limousines" , "ChampagneLimousines-Italic" , italic; 
+}
+
+#stelline{
+    display: inline-block;
+    float: left;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+
+#dolciContainer{
+    margin-top: 15px;
+    height: 40%;
+    background-color:rgb(175, 33, 33);
+    opacity: 0.75;
+    border-radius: 3px;
+    /* box-shadow: 1px 3px 10px 5px rgb(167, 33, 33) ; */
+    font-size: 30px;
+    font-family: "Champagne & Limousines" , "ChampagneLimousines-Italic" , italic ; 
+}
+
+#dolci{
+    display: inline-block;
+    float: left;
+    margin-left: 15px;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: "Champagne & Limousines" , "ChampagneLimousines-Italic" , italic ; 
+}
+
+

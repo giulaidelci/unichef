@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="it">
+    <!-- +++++++++++++++++++++++++++++ NON SI TOcCA PIU SE NON PER  LA GRAFICA  PENA PER CHI LO MODIFICA TAGLIO DELLE MANI !!!!!!!!!!!!-->
+    <head>
+        <meta charset="utf-8"/>
+        <!--meta name="viewport" content="width=device-width, initial-scale=1"-->
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+        <link rel=stylesheet href="stile.css" type="text/css">
+        <script type="text/javascript" lang="javascript" src="js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        
+    </head>
+
+    <script>
+
+            function persona(nomeIs, cognomeIs, emailIs, passwordIs){
+                this.nome = nomeIs;
+                this.cognome = cognomeIs;
+                this.email =emailIs;
+                this.password=passwordIs;
+            }
+
+            function esisteEmail(emailIs,array){
+                alert("ciao");
+                for(i=0; i<array.length; i++){
+                    if(array[i].email==emailIs)
+                        return true;}
+                return false // da implementare
+            }
+
+
+            function salvaUtente(){ // non fa reindirizzamento 
+                alert("in funzione");
+                nomeIs=document.getElementById("nome").value;
+                cognomeIs=document.getElementById("cognome").value;
+                emailIs=document.getElementById("email").value;
+                passwordIs=document.getElementById("password").value;
+                if(nomeIs=="" || cognomeIs==""  || emailIs==""  || passwordIs=="" ){
+                    alert("inserire tutti i campi");
+                    return false;}
+                
+
+                if (typeof(Storage) != "undefined") { //verifica se lo storage è supportato
+                    alert("entrato");
+                    if(localStorage.length== 0){
+                        var p =new persona( nomeIs, cognomeIs, emailIs, passwordIs);
+                        var array=[];
+                        array.push(p);
+                        alert("TUTTO OK");
+                        localStorage.setItem('Utente',JSON.stringify(array));//deve essere una stringa perciò serializzo
+                        alert("registrazione ok");
+                        
+                    }
+                    else{
+                        alert('in else');
+                        var p =new persona( nomeIs, cognomeIs, emailIs, passwordIs);
+                        var array=JSON.parse( localStorage.getItem('Utente'));
+
+                        if(esisteEmail(emailIs, array) == true){
+                            alert("la mail è gia registrata");
+                            return false;
+                        }
+                        array.push(p);
+                        alert("TUTTO OK");
+                        localStorage.setItem('Utente',JSON.stringify(array));//deve essere una stringa perciò serializzo
+                        alert("registrazione ok");
+                        
+                    }
+                
+                
+                }
+                alert("funzione finita");
+                window.location.href="./grafica.html";
+
+                return false;
+            }
+
+    </script>
+
+    <body >
+        
+        <form id ="formIscrivi" onsubmit="return salvaUtente()" action="#">  <!-- METTERE POST SE NON USI VISUAL STUDIO CODE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+            <table>
+                <tr>
+                    <td><label for="Nome" class="Etichette">Nome</label></td>
+                    <td><input type="text" id="nome" name="nome" class="form-control" placeholder="Inserisci il tuo nome" required ></td>
+                <tr>
+                    <td><label for="Cognome" class="Etichette">Cognome</label></td>
+                    <td><input type="text" id="cognome" name="cognome" class="form-control" placeholder="Inserisci il tuo cognome" required ></td>
+                <tr>
+                    <td><label for="Email" class="Etichette">Email</label></td>
+                    <td><input type="email" id="email" name="email" class="form-control" placeholder="Inserisci la tua email" required ></td>
+                </tr>
+                <tr>
+                    <td><label for="Password" class="Etichette">Password</label></td>
+                    <td><input type="password" id="password" name="password" class="form-control" placeholder="Inserisci la tua password" required ></td>
+                    <td><label for="Mp">Mostra password</label></td>
+                    <td><input type="checkbox" onchange="document.getElementById('password').type = this.checked ? 'text' : 'password'">
+                </tr>
+                <tr>
+                <td>
+                    <button type="submit" >Registrati</button>                                                                     
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
