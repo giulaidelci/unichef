@@ -27,6 +27,7 @@
             alert(a)
             if(verifica(emailA,passwordA,a)==true){
                 alert("credenziali confermate");
+                sessionStorage.setItem('Loggato', JSON.stringify("si"));
                 window.location.href="./grafica.html";
                 return false;
             }

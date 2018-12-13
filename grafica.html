@@ -11,6 +11,28 @@
         <link rel=stylesheet href="stile.css" type="text/css">
 
         <script> 
+
+            // DA SISTEMARE BOTTONI DOPO LOGOUT
+
+            function cambiabottoni(){
+                var s=JSON.parse(sessionStorage.getItem('Loggato'));
+                if(s == 'si'){
+                    
+                    $("#pulsanti").css("opacity", "0");
+                    $("#pulsanti").css("visibility", "hidden")
+                    $("#pulsanteLogout").css("opacity", "1");
+                    $("#pulstnteLogout").css("visibility", "show");
+
+
+                }
+                else {
+                    $("#pulsanti").css("opacity", "1");
+                    $("#pulsanti").css("visibility","show");
+                    $("#pulsanteLogout").css("opacity", "0");
+                    $("#pulsanteLogout").css("visibility","hidden");
+                }
+                    
+            }
             /*funzione per inserimento ingredienti*/ 
             ingredienti = [];
             function funzioneIngredieti(stringa, idCheck){
@@ -45,11 +67,20 @@
             function funzioneAccedi(){
                 window.location.href="./accedi.html";
             }
+
+            function funzioneLogout(){
+                sessionStorage.setItem('Loggato', JSON.stringify("no"));
+                $("#pulsanti").css("opacity", "1");
+                $("#pulsanti").css("display","show");
+                $("#pulsanteLogout").css("opacity", "0");
+                $("#pulsanteLogout").css("visibility","hidden");
+
+            }
         </script>
         <meta name="author" content="Del Citto Giulia && Di Pietro Giorgia">
         </head>
 
-        <body>
+        <body onload="cambiabottoni()">
                 <div id="generale" style="opacity: 1.0;"> 
                     <div id="container" style="width:70%; margin: auto;"> 
                         <div id="logo">
@@ -70,6 +101,7 @@
                             <button class="bottoni" id="battonsIscriviti" onclick="funzioneIscriviti()"> Iscriviti</button>
                             <button class="bottoni" id="battonsAccedi" onclick="funzioneAccedi()"> Accedi </button> 
                         </div>
+                       <button class="bottoni" id="pulsanteLogout" onclick="funzioneLogout()"> Logout </button>
                     </div>
                     
                 </div>

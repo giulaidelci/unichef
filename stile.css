@@ -61,6 +61,14 @@ input, textarea {
     right:3px; top:3px; 
 }
 
+#pulsanteLogout{
+     /*Il posizionamento assoluto esula dal flusso di dati del documento, per questo risulta ultile per piazzare div (o altro) in modo dinamico*/
+     position:absolute;
+     /*Grazie al posizionamento fluid (ovvero con percentuali) il nostro div si adattera' automaticamente allo schermo di tutte le risoluzioni*/
+     right:3px; top:3px; 
+    
+}
+
 
 
 body{

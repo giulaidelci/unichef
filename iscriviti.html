@@ -41,18 +41,17 @@
                 
 
                 if (typeof(Storage) != "undefined") { //verifica se lo storage è supportato
-                    alert("entrato");
+                    
                     if(localStorage.length== 0){
                         var p =new persona( nomeIs, cognomeIs, emailIs, passwordIs);
                         var array=[];
                         array.push(p);
-                        alert("TUTTO OK");
                         localStorage.setItem('Utente',JSON.stringify(array));//deve essere una stringa perciò serializzo
                         alert("registrazione ok");
+                        sessionStorage.setItem('Loggato',  JSON.stringify("si"));
                         
                     }
                     else{
-                        alert('in else');
                         var p =new persona( nomeIs, cognomeIs, emailIs, passwordIs);
                         var array=JSON.parse( localStorage.getItem('Utente'));
 
@@ -61,15 +60,14 @@
                             return false;
                         }
                         array.push(p);
-                        alert("TUTTO OK");
                         localStorage.setItem('Utente',JSON.stringify(array));//deve essere una stringa perciò serializzo
                         alert("registrazione ok");
+                        sessionStorage.setItem('Loggato',  JSON.stringify("si"));
                         
                     }
                 
                 
                 }
-                alert("funzione finita");
                 window.location.href="./grafica.html";
 
                 return false;
