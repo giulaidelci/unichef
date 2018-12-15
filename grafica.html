@@ -5,34 +5,12 @@
         <script type="text/javascript" lang="javascript" src="js/bootstrap.min.js"></script>
         
     <head>
-        <script src="storage.js" ></script>
+        <script src="homeStorage.js" ></script>
         <!--api google per query (credo)-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <link rel=stylesheet href="stile.css" type="text/css">
 
         <script> 
-
-            // DA SISTEMARE BOTTONI DOPO LOGOUT
-
-            function cambiabottoni(){
-                var s=JSON.parse(sessionStorage.getItem('Loggato'));
-                if(s == 'si'){
-                    
-                    $("#pulsanti").css("opacity", "0");
-                    $("#pulsanti").css("visibility", "hidden")
-                    $("#pulsanteLogout").css("opacity", "1");
-                    $("#pulstnteLogout").css("visibility", "show");
-
-
-                }
-                else {
-                    $("#pulsanti").css("opacity", "1");
-                    $("#pulsanti").css("visibility","show");
-                    $("#pulsanteLogout").css("opacity", "0");
-                    $("#pulsanteLogout").css("visibility","hidden");
-                }
-                    
-            }
             /*funzione per inserimento ingredienti*/ 
             ingredienti = [];
             function funzioneIngredieti(stringa, idCheck){
@@ -60,22 +38,6 @@
                 }
             }   
 
-            function funzioneIscriviti(){
-                window.location.href="./iscriviti.html";
-            }
-
-            function funzioneAccedi(){
-                window.location.href="./accedi.html";
-            }
-
-            function funzioneLogout(){
-                sessionStorage.setItem('Loggato', JSON.stringify("no"));
-                $("#pulsanti").css("opacity", "1");
-                $("#pulsanti").css("display","show");
-                $("#pulsanteLogout").css("opacity", "0");
-                $("#pulsanteLogout").css("visibility","hidden");
-
-            }
         </script>
         <meta name="author" content="Del Citto Giulia && Di Pietro Giorgia">
         </head>
@@ -86,17 +48,17 @@
                         <div id="logo">
                             <img id="logo1" height="120" width="700" src="LogoMakr_7LmLDL.png">
                         </div>
-                        <div id="cerca">
+                        <div id="formCerca">
                             <INPUT type="TEXTAREA" id= "ingredienti" > 
                                 <div id="listaIngredienti">
                                  <input type="checkbox" name="tonno" value="tonno" id = "tonno" onclick="funzioneIngredieti(value, id)"/>tonno
                                  <input type="checkbox" name="pasta" value="pasta" id= "pasta" onclick="funzioneIngredieti(value,id)">pasta
                                  <input type="checkbox" name="pesto" value="pesto" id= "pesto" onclick="funzioneIngredieti(value,id)">pesto
                                 </div>
-                                <br>
-                            <button class=PulsanteCerca  id='Cerca'> cerca  </button>  
+                            <br>
+                            <button class="bottoni" id="cerca" onclick="funzioneCerca()"> cerca  </button> 
+                            <button class="bottoni" id="aggiungiRicetta" onclick="aggiungiRicetta()"> aggiungi la tua ricetta </button>  
                             </div>
-    
                         <div id="pulsanti" >
                             <button class="bottoni" id="battonsIscriviti" onclick="funzioneIscriviti()"> Iscriviti</button>
                             <button class="bottoni" id="battonsAccedi" onclick="funzioneAccedi()"> Accedi </button> 

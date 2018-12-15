@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <script src="ricetteStorage.js" ></script> 
+        <!--api google per query (credo)-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <link rel=stylesheet href="stile.css" type="text/css">
+
+        <meta name="author" content="Del Citto Giulia && Di Pietro Giorgia">
+    </head>
+
+    <body>
+        <div id="generale" style="opacity: 1.0;"> 
+            <div id="container" style="width:70%; margin: auto;">
+                <div id="logo">
+                    <img id="logo1" height="120" width="700" src="LogoMakr_7LmLDL.png">
+                </div>
+                <br>
+                <br>
+                
+               <button class="bottoni" id="pulsanteLogout" onclick="funzioneLogoutRicetta()"> Logout </button>
+                
+
+               <td><h2><input type="text" id="titolo"  placeholder="Inserisci il titolo della ricetta" required ></td></h2>
+                <div id="areaRicetta">  
+                    <br>
+                    <td><input type="text" id="tempo"  placeholder="Inserisci il tempo della ricetta" required ></td>
+                    <br>
+                    <td><input type="text" id="difficolta"  placeholder="Inserisci la difficoltà" required ></td>
+                    <div id="listaIngredientiRicetta"><br>
+                        <td><input type="text" id="ingredienti"  placeholder="Inseriscigli ingredienti separati da virgole" required ></td>
+                    </div>
+                    <div id="procedimento">
+                            <br>
+                            <td><input type="text" id="procedimentoRicetta" placeholder="Inserisci il procedimento" required ></td>      
+                    </div>
+                    
+                     <td><input type="text" id="foto"  placeholder="inserisci una foto della ricetta o un link al video" required ></td>
+                    <br>
+                </div>
+                <button class="bottoni" id="aggiungi" onclick="aggiungi()"> Aggiungi Ricetta</button>
+            </div>    
+        </div>
+<!------------FINO A QUI È OK  C'È DA SISTEMARE L'IMPAGINAZIONE------------>
+    </body>
+</html>

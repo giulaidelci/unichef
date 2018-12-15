@@ -8,21 +8,13 @@
     font-style: italic;
 }
 
-h1{
-    color:#470404; 
-    font-size: 70px; 
-    text-align:center; 
-    margin:0; 
-    font-family: "Champagne & Limousines" , "ChampagneLimousines-Italic" , italic ; 
-}
-
 #logo{
     position: relative;
     margin-left: 14vw;
     margin-top: 3vw;
 }
 
-#cerca{
+#formCerca{
     position: absolute;
     left: 35%;
     right:85%;
