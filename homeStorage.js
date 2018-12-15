@@ -1,5 +1,52 @@
 function funzioneCerca(){
-    alert("la funzione cerca è da implementare");
+    
+    var storageIngredienti=JSON.parse(localStorage.getItem('Ricette'));
+
+    var stringaIngredienti=document.getElementById("ingredienti").value;
+
+    var listaIngredienti= stringaIngredienti.split(',');
+
+    //conto quanti degli ingredienti che sto cercando stanno in ogni ricetta
+    //quindi mi serve una lista con numero ricetta j e count
+    //ritorno la ricetta che ce ne ha di piu in comune o niente 
+    
+    //ciclo sulle ricette dello storage
+    var list=[];
+    for(j=0; j<storageIngredienti.length; j++){
+        //faccio divetare la stringa array
+        var arrayStorage=storageIngredienti[j].ingredienti.split(',');
+        //ciclo su ingredienti di ricetta j 
+        c=0;
+        for(k=0; k<arrayStorage.length; k++){
+            //ciclo sulla lista degli ingredienti cercati
+            for (i=0; i<listaIngredienti.length; i++){
+                if(arrayStorage[k] == listaIngredienti[i]){
+                    c++;
+                }
+            }
+        }
+        var elem=[j,c];
+        list.push(elem);
+    }
+    
+    //trovo la ricetta con il massimo degli ingredienti in comune
+    max=0;
+    ricMax=0
+    for (i=0; i<list.length; i++){
+        if(list[i][1] > max)
+            max=list[i][1];
+            ricMax=list[i][0];
+    }
+
+    if (max==0){
+        alert("ricetta non trovata, puoi inserire la tua ricett dopo aver fatto il login!");
+    }
+    else{
+        alert("ricetta trovata  " + storageIngredienti[ricMax].titolo);
+    }
+
+
+
 }
 
 function funzioneIscriviti(){
